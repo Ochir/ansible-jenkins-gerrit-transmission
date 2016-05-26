@@ -1,0 +1,13 @@
+---
+transmission_user: transmission
+transmission_password: transmission
+transmission_rpc_auth_enabled: true
+transmission_rpc_whitelist_enabled: true
+transmission_rpc_whitelist: 127.0.0.1
+transmission_umask: 2
+transmission_download_dir: "/home/{{ transmission_user }}/downloads"
+transmission_incomplete_dir_enabled: false
+transmission_incomplete_dir: "/home/{{ transmission_user }}/.incomplete"
+transmission_watch_dir_enabled: true
+transmission_watch_dir: "/home/{{ transmission_user }}/torrents"
+transmission_rpc_auth_required: false

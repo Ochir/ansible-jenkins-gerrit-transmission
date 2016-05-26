@@ -1,0 +1,16 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Ochir Abushinov
+  description: roles for installing WWPass backend software
+  company:  WWPass Corporation
+  min_ansible_version: 1.6
+  platforms:
+  - name: Ubuntu
+    versions:
+    - 12.04
+    - 14.04
+  categories:
+    - development
+    - packaging

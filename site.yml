@@ -1,0 +1,12 @@
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  tasks:
+    - include: tasks/main.yml
+  vars_files:
+    - vars/main.yml
+    - vars/jenkins.yml
+    - vars/gerrit.yml
+    - defaults/jenkins.yml
+    - defaults/gerrit.yml
+    - defaults/transmission.yml

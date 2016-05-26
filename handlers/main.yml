@@ -1,0 +1,16 @@
+---
+
+- name: start nginx
+  service: name=nginx state=started
+
+- name: userfe restart  
+  shell: stop userfe; start userfe
+
+- name: spfe restart  
+  shell: stop spfe; start spfe
+
+- name: dataminer restart  
+  shell: stop dataminer; start dataminer
+
+- name: ddsnode restart  
+  shell: stop ddsnode; start ddsnode

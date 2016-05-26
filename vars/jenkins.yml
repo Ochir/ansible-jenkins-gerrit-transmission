@@ -1,0 +1,14 @@
+---
+__jenkins_repo_url: deb http://pkg.jenkins-ci.org/debian binary/
+__jenkins_repo_key_url: http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key
+jenkins_init_file: /etc/default/jenkins
+jenkins_http_port_param: HTTP_PORT
+jenkins_url_prefix: /jenkins
+jenkins_http_port: 8080
+jenkins_connection_delay: 5
+jenkins_connection_retries: 60
+jenkins_hostname: localhost
+jenkins_jar_location: /opt/jenkins-cli.jar
+jenkins_user: jenkins
+jenkins_group: jenkins
+jenkins_home: /opt/jenkins

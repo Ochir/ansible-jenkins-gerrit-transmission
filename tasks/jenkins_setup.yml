@@ -1,0 +1,76 @@
+---
+- name: Ensure dependencies are installed.
+  apt: pkg=curl state=installed
+  apt:
+    pkg={{ item }} state=installed
+  with_items:
+    - curl
+    - default-jre
+    - daemon
+
+- name: Create Jenkins installation directory
+  file: >
+    path=/home/jenkins
+    owner={{ jenkins_user }}
+    group={{ jenkins_user }}
+    mode=0755
+    state=directory
+  tags: jenkins
+
+- name: Download Jenkins
+  get_url: >
+    url={{ jenkins_download_server }}/jenkins.war
+    dest=/home/jenkins/jenkins.war
+  tags: jenkins
+
+- name: Create Jenkins defaults file
+  template: >
+    src=../templates/jenkins.j2
+    dest=/home/jenkins/jenkins
+    owner=jenkins
+    group=jenkins
+    mode=0644
+  tags: jenkins
+
+- name: Create Jenkins symlink to defaults file
+  file: >
+    src=/home/jenkins/jenkins
+    dest=/etc/default/jenkins
+    owner=root
+    group=root
+    mode=0644
+    force=yes
+    state=link
+  notify: restart jenkins
+  tags: jenkins  
+
+- name: Create Jenkins init directory
+  file: path=/home/jenkins/init.d state=directory mode=0755 owner=jenkins group=jenkins
+  tags: jenkins
+
+- name: Create Jenkins init file link
+  template: >
+    src=../templates/jenkins_init.j2
+    dest=/home/jenkins/init.d/jenkins
+    owner=jenkins
+    group=jenkins
+    mode=0751
+  tags: jenkins
+
+- name: Create Jenkins symlink to init file link
+  file: >
+    src=/home/jenkins/init.d/jenkins
+    dest=/etc/init.d/jenkins
+    state=link
+  tags: jenkins
+
+- name: Create Jenkins war directory
+  file: path=/home/jenkins/war/META-INF state=directory mode=0755 owner=jenkins group=jenkins
+  tags: jenkins
+
+- name: Create Jenkins log directory
+  file: path=/home/jenkins/log state=directory mode=0755 owner=jenkins group=jenkins
+  tags: jenkins
+
+- name: Ensure Jenkins is started and enabled on boot
+  service: name=jenkins state=started enabled=yes

@@ -1,0 +1,13 @@
+---
+developer1: devel1
+developer2: devel2
+developer3: devel3
+dev_pass1: dev_pass1
+dev_pass2: dev_pass2
+dev_pass3: dev_pass3
+testapp1: jenkins
+testapp2: gerrit
+testapp3: transmission
+app_pass1: jenkins
+app_pass2: gerrit
+app_pass3: transmission
