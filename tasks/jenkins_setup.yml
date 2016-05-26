@@ -1,8 +1,7 @@
 ---
-- name: Ensure dependencies are installed.
-  apt: pkg=curl state=installed
+- name: Ensure dependencies are installed.  
   apt:
-    pkg={{ item }} state=installed
+    name={{ item }} state=installed
   with_items:
     - curl
     - default-jre
