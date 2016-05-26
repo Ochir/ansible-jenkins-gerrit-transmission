@@ -1,7 +1,6 @@
 ---
 - name: Ensure dependencies are installed.  
-  apt:
-    name={{ item }} state=present 
+  apt: name={{ item }} state=installed 
   with_items:
     - curl
     - default-jre
