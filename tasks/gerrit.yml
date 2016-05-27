@@ -141,8 +141,16 @@
     mode=0644
     force=yes
     state=link
-  notify: restart gerrit
   tags: gerrit    
+
+- name: Create Gerrit init file
+  template: >
+    src=gerrit_init.j2
+    dest={{ gerrit_site_dir }}/bin/gerrit.sh
+    owner={{ gerrit_user }}
+    group={{ gerrit_group }}
+    mode=0644  
+  tags: gerrit
 
 - name: Create Gerrit init file link
   file: >

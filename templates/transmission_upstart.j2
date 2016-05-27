@@ -26,5 +26,5 @@ end script
 script
   . /etc/default/transmission-daemon
 
-  exec /usr/bin/transmission-daemon -f $OPTIONS
+  exec {{ firejail_exec }} /usr/bin/transmission-daemon -f $OPTIONS
 end script
