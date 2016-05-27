@@ -346,21 +346,10 @@ if test -n "$JAVA_OPTIONS" ; then
   RUN_ARGS="$JAVA_OPTIONS $RUN_ARGS"
 fi
 
-if test -x /usr/bin/perl ; then
-  # If possible, use Perl to mask the name of the process so its
-  # something specific to us rather than the generic 'java' name.
-  #
-  export JAVA
-  RUN_EXEC=/usr/bin/perl
-  RUN_Arg1=-e
-  RUN_Arg2='$x=$ENV{JAVA};exec $x @ARGV;die $!'
-  RUN_Arg3='-- GerritCodeReview'
-else
-  RUN_EXEC=$JAVA
-  RUN_Arg1=
-  RUN_Arg2='-DGerritCodeReview=1'
-  RUN_Arg3=
-fi
+RUN_EXEC=$JAVA
+RUN_Arg1=
+RUN_Arg2='-DGerritCodeReview=1'
+RUN_Arg3=
 
 ##################################################
 # Do the action
