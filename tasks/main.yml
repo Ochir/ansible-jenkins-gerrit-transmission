@@ -1,14 +1,5 @@
 ---
 
-- name: Creating developer 1 "{{ developer1 }}" without admin rights
-  user: name={{ developer1 }} password={{ dev_pass1 | password_hash('sha512') }} shell=/bin/bash generate_ssh_key=yes ssh_key_bits=2048
-
-- name: Creating developer 2 "{{ developer2 }}" without admin rights
-  user: name={{ developer2 }} password={{ dev_pass2 | password_hash('sha512') }} shell=/bin/bash generate_ssh_key=yes ssh_key_bits=2048 
-
-- name: Creating developer 2 "{{ developer3 }}" without admin rights
-  user: name={{ developer3 }} password={{ dev_pass3 | password_hash('sha512') }} shell=/bin/bash generate_ssh_key=yes ssh_key_bits=2048 
-
 - name: Creating account for app1 "{{ testapp1 }}"
   user: name={{ testapp1 }} 
 
@@ -17,6 +8,15 @@
 
 - name: Creating account for app3 "{{ testapp3 }}"
   user: name={{ testapp3 }} 
+
+- name: Creating developer 1 "{{ developer1 }}" without admin rights
+  user: name={{ developer1 }} password={{ dev_pass1 | password_hash('sha512') }} shell=/bin/bash generate_ssh_key=yes ssh_key_bits=2048 groups={{ testapp1 }}, {{ testapp2 }}, {{ testapp3 }} 
+
+- name: Creating developer 2 "{{ developer2 }}" without admin rights
+  user: name={{ developer2 }} password={{ dev_pass2 | password_hash('sha512') }} shell=/bin/bash generate_ssh_key=yes ssh_key_bits=2048 groups={{ testapp1 }}, {{ testapp2 }}, {{ testapp3 }} 
+
+- name: Creating developer 2 "{{ developer3 }}" without admin rights
+  user: name={{ developer3 }} password={{ dev_pass3 | password_hash('sha512') }} shell=/bin/bash generate_ssh_key=yes ssh_key_bits=2048 groups={{ testapp1 }}, {{ testapp2 }}, {{ testapp3 }} 
 
 #- name: install apt packages
 #  apt: "name='{{ item }}' state=present"
