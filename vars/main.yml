@@ -7,8 +7,8 @@ dev_pass2: dev_pass2
 dev_pass3: dev_pass3
 testapp1: jenkins
 testapp2: gerrit
-testapp3: transmission
+testapp3: debian-transmission
 app_pass1: jenkins
 app_pass2: gerrit
-app_pass3: transmission
+app_pass3: debian-transmission
 firejail_exec: "/usr/bin/firejail"

@@ -1,8 +1,0 @@
----
-
-# List of administrator accounts which should have access to libvirtd
-kvm_admins: [ '{{ ansible_ssh_user }}' ]
-
-# UNIX group that has access to libvirtd
-kvm_group: 'libvirt'
-
