@@ -93,6 +93,15 @@
     state=directory
   tags: gerrit
 
+- name: Create Gerrit log directory
+  file: >
+    path={{ gerrit_site_dir }}/log
+    owner={{ gerrit_user }}
+    group={{ gerrit_group }}
+    mode=0755
+    state=directory
+  tags: gerrit  
+
 - name: Save Initialization Options
   copy: >
     content="{{ gerrit_init_options }}"
