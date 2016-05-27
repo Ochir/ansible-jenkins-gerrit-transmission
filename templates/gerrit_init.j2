@@ -374,7 +374,7 @@ case "$ACTION" in
       if start-stop-daemon -S -b $CH_USER \
          -p "$GERRIT_PID" -m \
          -d "$GERRIT_SITE" \
-         -a {{ firejail_exec }} --private={{ gerrit_site_dir }} "$RUN_EXEC" -- $RUN_Arg1 "$RUN_Arg2" $RUN_Arg3 $RUN_ARGS
+         -a "{{ firejail_exec }} --private={{ gerrit_site_dir }}" "$RUN_EXEC" -- $RUN_Arg1 "$RUN_Arg2" $RUN_Arg3 $RUN_ARGS
       then
         : OK
       else
