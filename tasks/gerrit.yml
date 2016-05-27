@@ -16,10 +16,18 @@
     state=directory
   tags: gerrit
 
+- name: Download Gerrit
+  get_url: >
+    url={{ gerrit_download_server }}/gerrit-{{ gerrit_version }}.war
+    dest=/home/{{ gerrit_user }}/gerrit-{{ gerrit_version }}.war
+  when: not gerrit_download_maven
+  tags: gerrit
+
 - name: Download Gerrit from Maven Repo
   get_url: >
     url={{ gerrit_download_server }}/com/google/gerrit/gerrit-war/{{ gerrit_version }}/gerrit-war-{{ gerrit_version }}.war
     dest=/home/{{ gerrit_user }}/gerrit-{{ gerrit_version }}.war
+    sha256sum={{ gerrit_sha256sum }}
   when: gerrit_download_maven
   tags: gerrit
 
