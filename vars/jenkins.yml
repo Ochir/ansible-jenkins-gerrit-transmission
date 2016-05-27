@@ -11,4 +11,4 @@ jenkins_hostname: localhost
 jenkins_jar_location: /opt/jenkins-cli.jar
 jenkins_user: jenkins
 jenkins_group: jenkins
-jenkins_home: /opt/jenkins
+jenkins_home: /home/jenkins

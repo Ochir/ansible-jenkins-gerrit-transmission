@@ -1,4 +1,5 @@
 ---
+transmission_home_dir: /home/transmission
 transmission_user: transmission
 transmission_password: transmission
 transmission_rpc_auth_enabled: true
