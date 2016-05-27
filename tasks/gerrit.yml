@@ -93,9 +93,9 @@
     state=directory
   tags: gerrit
 
-- name: Create Gerrit log directory
+- name: Create Gerrit logs directory
   file: >
-    path={{ gerrit_site_dir }}/log
+    path={{ gerrit_site_dir }}/logs
     owner={{ gerrit_user }}
     group={{ gerrit_group }}
     mode=0755
