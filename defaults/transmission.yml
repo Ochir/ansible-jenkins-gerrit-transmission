@@ -1,5 +1,5 @@
 ---
-transmission_home_dir: /home/transmission
+transmission_home_dir: /home/debian-transmission
 transmission_user: debian-transmission
 transmission_password: debian-transmission
 transmission_rpc_auth_enabled: true
