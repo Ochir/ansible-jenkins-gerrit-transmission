@@ -1,5 +1,4 @@
 # ansible-jenkins-gerrit-transmission
-ansible playbook for Ubuntu 14.04 
 
 Here is a playbook for Ubuntu 14.04 that installs Jenkins and Gerrit using war file and Transmission daemon 
 via apt. 
