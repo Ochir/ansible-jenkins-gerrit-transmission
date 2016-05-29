@@ -7,3 +7,5 @@ Three application accounts are created with approriate names and three developer
 All three applications are placed in Firejail sandbox (https://firejail.wordpress.com/) and don't have access to file system. To run this playbook, the following command should be run after cloning: 
 
 *ansible-playbook site.yml --ask-sudo-pass*
+
+The entire installation process takes a while, so you may drink a coffee or switch to your personal tasks while this playbook is run. 
