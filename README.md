@@ -10,7 +10,10 @@ All three applications are placed in Firejail sandbox (https://firejail.wordpres
 
 The entire installation process takes a while, so you may drink a coffee or switch to your personal tasks while this playbook is run. 
 After installation 
+
 Jenkins is available at localhost:8080, 
+
 Gerrit at localhost:8081, 
+
 Transmission at localhost:9091
 
